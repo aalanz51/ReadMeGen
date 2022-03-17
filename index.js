@@ -1,67 +1,62 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const MDCreator = require('./Utils/MDCreator');
 
-const generateHTML = ({ name, location, github, linkedin }) =>
-  `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
-</head>
-<body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${name}</h1>
-    <p class="lead">I am from ${location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${github}</li>
-      <li class="list-group-item">LinkedIn: ${linkedin}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
+const questions = {
+    return inquirer.prompt([
+    {
+        type: 'input',
+        name: 'title',
+        message: "What is the title of the project?",
+      }
+      {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?',
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: "What is the URL of the Github repository?",
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: "What is the description of the project?",
+      },
+      {
+        type: 'input',
+        name: 'install',
+        message: "What steps are necessary for install?",
+      },
+      {
+        type: 'input',
+        name: 'operate',
+        message: "How does this program operate?",
+      },
+      {
+        type: 'input',
+        name: 'credits',
+        message: "Credit to contributors:",
+      },
+      {
+        type: 'list',
+        name: 'license',
+        message: "Choose a license for your project:",
+        choices: ['MIT', 'Apache 2.0', 'GNU GPL 3.0']
+        }
+    ]);
+};
 
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      name: 'name',
-      message: 'What is your name?',
-    },
-    {
-      type: 'input',
-      name: 'location',
-      message: 'Where are you from?',
-    },
-    {
-      type: 'input',
-      name: 'hobby',
-      message: 'What is your favorite hobby?',
-    },
-    {
-      type: 'input',
-      name: 'food',
-      message: 'What is your favorite food?',
-    },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Enter your GitHub Username',
-    },
-    {
-      type: 'input',
-      name: 'linkedin',
-      message: 'Enter your LinkedIn URL.',
-    },
-  ])
-  .then((answers) => {
-    const htmlPageContent = generateHTML(answers);
+    function writetoFile(fileName, data) {
+        fs.writeFile(fileName, data, function)
+      };
 
-    fs.writeFile('index.html', htmlPageContent, (err) =>
-      err ? console.log(err) : console.log('Successfully created index.html!')
-    );
-  });
+      async function init() {
+        try {
+          const answers = await askQuestions();
+          generateMarkdown(answers);
+          writetoFile("README.md", generateMarkdown(answers));
+        }
+    
+init();
