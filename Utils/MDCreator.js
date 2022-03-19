@@ -17,34 +17,34 @@ function badge(license) {
 
 function generateMarkdown(data) {
 
-    return `# ${data.title}
-    ${badge(data.license)}
+return `# ${data.title}
+${badge(data.license)}
+## Description
 
-    ## Description
-    ${data.description}
+${data.description}
+## Table of Contents
 
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Contributing](#contributing)
-    - [Tests](#tests)
-    - [Questions](#questions)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+## Installation
 
-    ## Installation
-    ${data.install}
+${data.install}
+## Usage
 
-    ## Usage
-    ${data.operate}
+${data.operate}
+## Credit
 
-    ## Credit
-    ${data.credits}
+${data.credits}
+## Questions
 
-    ## Questions
-    Contact Details:
-    - GitHub Username: ${data.github}
-    - [Link to GitHub Profile](https://github.com/${data.github})
-    - For additional questions, you can contact me via email: ${data.email}
-    `;
-    }
+Contact Details:
+- GitHub Username: ${data.github}
+- [Link to GitHub Profile](https://github.com/${data.github})
+- For additional questions, you can contact me via email: ${data.email}
+`;
+}
     
     module.exports = generateMarkdown;
