@@ -1,8 +1,8 @@
-# dafasd
+# Good ReadME Generator
 ![License](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)
 ## Description
 
-adas
+this project helps to create good readme's
 ## Table of Contents
 
 - [Installation](#installation)
@@ -12,16 +12,16 @@ adas
 - [Questions](#questions)
 ## Installation
 
-asd
+npm i and then node index.js
 ## Usage
 
-a
+it takes user inputs and then creates a layout for all project's readme files
 ## Credit
 
-as
+myself currently
 ## Questions
 
 Contact Details:
-- GitHub Username: asdasd
-- [Link to GitHub Profile](https://github.com/asdasd)
-- For additional questions, you can contact me via email: asd
+- GitHub Username: github repo here
+- [Link to GitHub Profile](https://github.com/github repo here)
+- For additional questions, you can contact me via email: email here
